@@ -1,0 +1,2 @@
+rootProject.name = 'ktalks'
+include 'ktalks-core'
