@@ -6,7 +6,7 @@ mainClassName = "org.ktalks.core.HelloKtalksKt"
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.ktor:ktor-core:$ktor_version"
-    compile "org.jetbrains.ktor:ktor-jetty:$ktor_version"
+    compile "org.jetbrains.ktor:ktor-netty:$ktor_version"
 }
 
 repositories {
@@ -16,4 +16,15 @@ repositories {
 
 sourceSets {
     main.java.srcDirs += 'src/main/kotlin'
+}
+
+task fatJar(type: Jar) {
+    manifest {
+        attributes 'Implementation-Title': 'org.ktalks',
+                'Implementation-Version': version,
+                'Main-Class': mainClassName
+    }
+    baseName = 'ktalks-engine'
+    from { configurations.compile.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
 }
