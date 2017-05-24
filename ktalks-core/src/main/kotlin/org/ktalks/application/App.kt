@@ -1,4 +1,5 @@
-package org.ktalks.core
+@file:JvmName("Main")
+package org.ktalks.application
 
 import org.jetbrains.ktor.application.*
 import org.jetbrains.ktor.host.*
@@ -7,12 +8,13 @@ import org.jetbrains.ktor.netty.Netty
 import org.jetbrains.ktor.logging.*
 import org.jetbrains.ktor.response.*
 import org.jetbrains.ktor.routing.*
+import org.ktalks.view.index
 
 fun Application.module() {
     install(CallLogging)
     install(Routing) {
         get("/") {
-            call.respondText("Hello, Ktalks!", ContentType.Text.Html)
+            call.respondText(index(), ContentType.Text.Html)
         }
     }
 }

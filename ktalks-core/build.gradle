@@ -1,12 +1,13 @@
 apply plugin: 'kotlin'
 apply plugin: 'application'
 
-mainClassName = "org.ktalks.core.HelloKtalksKt"
+mainClassName = "org.ktalks.application.Main"
 
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.ktor:ktor-core:$ktor_version"
     compile "org.jetbrains.ktor:ktor-netty:$ktor_version"
+    compile "org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinx_html_version"
 }
 
 repositories {
