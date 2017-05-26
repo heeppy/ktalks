@@ -7,16 +7,18 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
     compile "org.jetbrains.ktor:ktor-core:$ktor_version"
     compile "org.jetbrains.ktor:ktor-netty:$ktor_version"
-    compile "org.jetbrains.kotlinx:kotlinx-html-jvm:$kotlinx_html_version"
+    compile "org.jtwig:jtwig-core:5.85.3.RELEASE"
 }
 
 repositories {
     maven { url "https://dl.bintray.com/kotlin/kotlinx" }
     maven { url "https://dl.bintray.com/kotlin/ktor" }
+    maven { url "https://dl.bintray.com/kotlin/exposed/" }
 }
 
 sourceSets {
-    main.java.srcDirs += 'src/main/kotlin'
+    main.kotlin.srcDirs += 'src/main/kotlin'
+    main.resources.srcDirs += 'resources'
 }
 
 task fatJar(type: Jar) {

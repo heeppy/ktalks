@@ -8,13 +8,17 @@ import org.jetbrains.ktor.netty.Netty
 import org.jetbrains.ktor.logging.*
 import org.jetbrains.ktor.response.*
 import org.jetbrains.ktor.routing.*
-import org.ktalks.view.index
+import org.ktalks.view.*
+
 
 fun Application.module() {
     install(CallLogging)
     install(Routing) {
         get("/") {
-            call.respondText(index(), ContentType.Text.Html)
+            call.respondText(getIndex(), ContentType.Text.Html)
+        }
+        get("/new-topic") {
+            call.respondText(getNewTopic(), ContentType.Text.Html)
         }
     }
 }
