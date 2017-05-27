@@ -8,6 +8,8 @@ dependencies {
     compile "org.jetbrains.ktor:ktor-core:$ktor_version"
     compile "org.jetbrains.ktor:ktor-netty:$ktor_version"
     compile "org.jtwig:jtwig-core:5.85.3.RELEASE"
+    compile 'org.jetbrains.exposed:exposed:0.8'
+    compile 'mysql:mysql-connector-java:6.0.6'
 }
 
 repositories {
